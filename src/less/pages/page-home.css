@@ -1561,7 +1561,7 @@ select:-webkit-autofill:focus {
   background: #f4445d;
   padding: 9.6px 10.66666667px;
   white-space: nowrap;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   letter-spacing: 0.21px;
   border-radius: 8px;
@@ -1580,7 +1580,7 @@ select:-webkit-autofill:focus {
 .header__info {
   margin-top: -15px;
   margin-left: 18px;
-  color: #fff;
+  color: #000;
   font-size: 9.6px;
   font-weight: bold;
   letter-spacing: 0.6px;
@@ -1634,7 +1634,7 @@ select:-webkit-autofill:focus {
 }
 .header__nav a {
   font-style: normal;
-  color: #fff;
+  color: #000;
   font-size: 11.2px;
 }
 @media only screen and (min-width: 992px) {
@@ -1648,18 +1648,17 @@ select:-webkit-autofill:focus {
 .current_page_item {
   font-weight: 900;
 }
-.home-page {
-  overflow-x: hidden;
-}
 .top {
   width: 100%;
   height: 100vh;
   padding-top: 100px;
   background: #444444;
+  height: auto;
+  padding-bottom: 20px;
 }
-@media (min-width: 1400px) {
+@media only screen and (min-width: 992px) {
   .top {
-    height: auto;
+    min-height: 100vh;
   }
 }
 .top__wrapper {
@@ -1964,21 +1963,43 @@ select:-webkit-autofill:focus {
 .speaker__titleCont {
   display: flex;
   justify-content: center;
-  margin-top: 96px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+@media only screen and (min-width: 992px) {
+  .speaker__titleCont {
+    margin-top: 96px;
+    margin-bottom: 96px;
+  }
 }
 .speaker__titleItem {
   font-weight: 300;
-  font-size: 66px;
+  font-size: 33px;
   text-transform: uppercase;
 }
+@media only screen and (min-width: 992px) {
+  .speaker__titleItem {
+    font-size: 66px;
+  }
+}
 .speaker__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  .speaker__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 .speaker__wrapper {
-  width: 263px;
+  width: 100%;
   height: 348px;
+}
+@media only screen and (min-width: 992px) {
+  .speaker__wrapper {
+    width: 263px;
+  }
 }
 .speaker__imgCont {
   width: 100%;
@@ -1986,11 +2007,22 @@ select:-webkit-autofill:focus {
   background: #444;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(90deg, #f71111 50%, #ff731c);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  border: 0.1px solid #ddd;
 }
 .speaker__imgCont img {
-  width: 100%;
+  width: 100.01%;
   height: 100%;
-  display: block;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 .speaker__nameCont {
   display: flex;
@@ -1998,7 +2030,6 @@ select:-webkit-autofill:focus {
   align-items: center;
   justify-content: center;
   height: 68px;
-  background: #ddd;
 }
 .speaker__nameHeader {
   font-weight: 700;
@@ -2033,11 +2064,33 @@ select:-webkit-autofill:focus {
 .speaker__imgBtnCont .speaker__imgBtn--minus {
   display: none;
 }
+.speaker__socialBtnWrapper {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+}
+.speaker__socialBtnWrapper a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.speaker__socialBtnWrapper .speaker__social {
+  width: 13px;
+}
 .speaker__socialCont {
+  opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 .speaker__imgTraingle {
-  border-right: 40px solid #fff;
+  border-right: 40px solid #ffffff;
   border-top: 37px solid transparent;
   border-bottom: 0px solid transparent;
   width: 0px;
@@ -2045,17 +2098,22 @@ select:-webkit-autofill:focus {
   position: relative;
   right: 0;
   bottom: 0;
+  display: block;
+}
+.speaker__imgBtnCont--minus {
+  display: none;
 }
 .speaker__imgCont.active {
-  background: linear-gradient(90deg, #f71111 50%, #ff731c);
-  display: flex;
-  align-items: center;
+  transition: all 0.3s ease-in-out;
 }
 .speaker__imgCont.active img {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 .speaker__imgCont.active .speaker__socialCont {
   visibility: visible;
+  opacity: 1;
+  pointer-events: all;
   display: flex;
   justify-content: space-around;
   padding: 0 49px;
@@ -2077,11 +2135,83 @@ select:-webkit-autofill:focus {
 .speaker__imgCont.active .speaker__socialBtnWrapper .speaker__social {
   width: 13px;
 }
-.speaker__imgCont.active .speaker__imgBtn--plus {
+.speaker__imgCont.active .speaker__imgBtnCont--plus {
   display: none;
 }
-.speaker__imgCont.active .speaker__imgBtn--minus {
+.speaker__imgCont.active .speaker__imgBtnCont--minus {
   display: block;
+}
+.swiper-container {
+  display: block;
+}
+@media only screen and (min-width: 992px) {
+  .swiper-container {
+    display: none;
+  }
+}
+.conference {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  position: relative;
+}
+@media only screen and (min-width: 992px) {
+  .conference {
+    margin-top: 96px;
+    margin-bottom: 96px;
+  }
+}
+.conference__titleCont {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+@media only screen and (min-width: 992px) {
+  .conference__titleCont {
+    margin-top: 96px;
+    margin-bottom: 96px;
+  }
+}
+.conference__titleItem {
+  font-weight: 300;
+  font-size: 33px;
+  text-transform: uppercase;
+  color: #000;
+}
+@media only screen and (min-width: 992px) {
+  .conference__titleItem {
+    font-size: 66px;
+  }
+}
+.conference__daysCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 220px;
+  position: relative;
+}
+.conference__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  display: block;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent 0%, #f71111 50%, rgba(0, 0, 255, 0) 100%);
+  z-index: -1;
+}
+.conference__dayWrapper {
+  padding: 16px 22px;
+  position: relative;
+  border: 4px solid 
+    #ff512f;
+  border-radius: 30px;
+  background: #ffffff;
+  /* just to show box-shadow still works fine */
+}
+.conference__dayItem {
+  font-size: 15.5px;
+  color: #000;
 }
 .footer {
   overflow-x: hidden;
