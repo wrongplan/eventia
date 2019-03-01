@@ -1561,7 +1561,7 @@ select:-webkit-autofill:focus {
   background: #f4445d;
   padding: 9.6px 10.66666667px;
   white-space: nowrap;
-  color: #000;
+  color: #5b5b5b;
   font-weight: bold;
   letter-spacing: 0.21px;
   border-radius: 8px;
@@ -1580,7 +1580,7 @@ select:-webkit-autofill:focus {
 .header__info {
   margin-top: -15px;
   margin-left: 18px;
-  color: #000;
+  color: #5b5b5b;
   font-size: 9.6px;
   font-weight: bold;
   letter-spacing: 0.6px;
@@ -1634,7 +1634,7 @@ select:-webkit-autofill:focus {
 }
 .header__nav a {
   font-style: normal;
-  color: #000;
+  color: #5b5b5b;
   font-size: 11.2px;
 }
 @media only screen and (min-width: 992px) {
@@ -2015,7 +2015,7 @@ select:-webkit-autofill:focus {
 }
 .speaker__imgCont img {
   width: 100.01%;
-  height: 100%;
+  height: 100.01%;
   opacity: 1;
   transition: all 0.3s ease-in-out;
   position: absolute;
@@ -2176,7 +2176,7 @@ select:-webkit-autofill:focus {
   font-weight: 300;
   font-size: 33px;
   text-transform: uppercase;
-  color: #000;
+  color: #5b5b5b;
 }
 @media only screen and (min-width: 992px) {
   .conference__titleItem {
@@ -2186,32 +2186,223 @@ select:-webkit-autofill:focus {
 .conference__daysCont {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 220px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
   position: relative;
 }
+@media only screen and (min-width: 768px) {
+  .conference__daysCont {
+    padding: 0 125.71428571px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .conference__daysCont {
+    padding: 0 220px;
+  }
+}
 .conference__line {
+  transform: translate(0, 50%);
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   display: block;
-  height: 1px;
+  height: 2px;
   background-image: linear-gradient(to right, transparent 0%, #f71111 50%, rgba(0, 0, 255, 0) 100%);
   z-index: -1;
 }
+@media only screen and (min-width: 768px) {
+  .conference__line {
+    transform: translate(0, -50%);
+  }
+}
 .conference__dayWrapper {
+  width: 160px;
   padding: 16px 22px;
   position: relative;
-  border: 4px solid 
-    #ff512f;
+  border: 2px solid #ff512f;
   border-radius: 30px;
   background: #ffffff;
-  /* just to show box-shadow still works fine */
+  margin-top: 10px;
+}
+@media only screen and (min-width: 768px) {
+  .conference__dayWrapper {
+    width: auto;
+    margin-top: 0;
+  }
+}
+.conference__dayWrapper:nth-last-of-type(1) {
+  margin-top: 10px;
 }
 .conference__dayItem {
   font-size: 15.5px;
-  color: #000;
+  color: #5b5b5b;
+}
+.agenda {
+  width: 100%;
+  margin-top: 78px;
+  position: relative;
+}
+.agenda__line {
+  content: "";
+  position: absolute;
+  right: 540.57142857px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, #f71111 60%, rgba(0, 0, 0, 0) 100%);
+}
+@media only screen and (max-width: 767px) {
+  .agenda__line {
+    display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .agenda__line {
+    right: 756.8px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .agenda__line {
+    right: 946px;
+  }
+}
+.agenda__slideCont {
+  display: flex;
+  margin-bottom: 15px;
+}
+.agenda__timeCont {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  position: relative;
+}
+.agenda__timeCont--mobile {
+  align-items: center;
+  margin-bottom: 15px;
+}
+@media only screen and (min-width: 768px) {
+  .agenda__timeCont--mobile {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .agenda__timeCont--desktop {
+    display: none;
+  }
+}
+.agenda__circle {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(90deg, #f71111 50%, #ff731c);
+  border-radius: 50%;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+@media only screen and (max-width: 767px) {
+  .agenda__circle {
+    display: none;
+  }
+}
+.agenda__circle::before {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ff512f;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  z-index: -1;
+}
+.agenda__time {
+  font-size: 26px;
+  color: #5b5b5b;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.agenda__timeDurationCont {
+  height: 10px;
+  display: flex;
+  margin-top: 5px;
+}
+@media only screen and (min-width: 768px) {
+  .agenda__timeDurationCont {
+    margin-top: 18px;
+  }
+}
+.agenda__timeDurationIco {
+  height: 10px;
+  width: auto;
+  margin-right: 5px;
+}
+.agenda__timeDurationIco path {
+  fill: #ff512f;
+}
+.agenda__timeDuration {
+  font-size: 12px;
+  color: #ff512f;
+  text-transform: uppercase;
+}
+.agenda__slideItem {
+  width: 100%;
+  padding: 29px 35px 19px 27.5px;
+  box-shadow: 0px 1px 10px 0 rgba(165, 165, 165, 0.54);
+  background-color: #ffffff;
+  text-align: justify;
+}
+@media only screen and (min-width: 768px) {
+  .agenda__slideItem {
+    width: 540.57142857px;
+    padding: 29px 56px 19px 55px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .agenda__slideItem {
+    padding: 29px 70px 19px 55px;
+    width: 756.8px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .agenda__slideItem {
+    width: 946px;
+  }
+}
+.agenda__title {
+  font-size: 18px;
+  color: #5b5b5b;
+  font-weight: 700;
+}
+.agenda__txt {
+  font-size: 16px;
+  color: #5b5b5b;
+  margin-top: 17.14285714px;
+  line-height: 1.2;
+  overflow: hidden;
+  max-height: 59px;
+  transition: 0.5s;
+}
+@media only screen and (min-width: 992px) {
+  .agenda__txt {
+    margin-top: 30px;
+  }
+}
+.morecontent span {
+  display: none;
+}
+.morelink {
+  display: block;
+  color: #ff512f;
 }
 .footer {
   overflow-x: hidden;
